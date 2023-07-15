@@ -5,12 +5,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Library</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Goudy+Bookletter+1911&display=swap" rel="stylesheet">
+    <!--prevent favicon request (temporary)-->
+    <link rel="icon" href="data:," />
 </head>
 <body>
     <div class="header-container">
-        <div class="logo">
-            <h1><b>library</b></h1>
-        </div>
+        <h1 class="logo">shelf</h1>
         <div class="buttons">
             <div class=" signup">
                 <button class="button-style"><h2>signup</h2></button>
@@ -21,10 +24,24 @@
         </div>
     </div>
     <div class="main">
-        <div class="button-2 base-padding">
-            <button class="button-style"> <h2>+ add book</h2> </button>
+        <div class="base-padding">
+            <button class="button-style" id="add" onclick="overlay()"> <h2>+ add book</h2> </button>
         </div>
-        <div class="shelf base-padding"></div>
+        <div id="over" class="over"></div>
+        <div class="addbook base-padding" id="addbook">
+            <h1>add new book</h1>
+            <input placeholder="name" type="text" id="name" class="input">
+            <input placeholder="author" type="text" id="author" class="input">
+            <input placeholder="pages" type="number" id="pages" class="input">
+            <div class="checkflex">
+                <input type="checkbox" id="read" class="check">
+                <label for="read" class="done"><b>finished?</b></label>
+            </div>
+            <button class="addtoshelf button-style">add to shelf</button>
+        </div>
+
+        <div class="shelf base-padding" id="shelf"></div>
     </div>
+    <script src="main.js"></script>
 </body>
 </html>
