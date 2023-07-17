@@ -8,41 +8,35 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Goudy+Bookletter+1911&display=swap" rel="stylesheet">
-    <!--prevent favicon request (temporary)-->
-    <link rel="icon" href="data:," />
 </head>
 <body>
     <div class="header-container">
-        <h1 class="logo">shelf</h1>
+        <a href="https://github.com/udqy/library" class="logo">shelf</a>
         <div class="buttons">
-            <div class=" signup">
+            <div class="signup">
                 <button class="button-style"><h2>signup</h2></button>
             </div>
-            <div class=" login">
+            <div class="login">
                <button class="button-style"> <h2>login</h2></button>
             </div>
         </div>
     </div>
-    
+
     <div class="main">
-        <div class="base-padding">
-            <button class="button-style" id="add" onclick="overlay()"> <h2>+ add book</h2> </button>
-        </div>
+        <button class="button-style" id="add" onclick="overlay()"> <h2>+ add book</h2> </button>
         <div id="over" class="over"></div>
-        <div class="addbook base-padding" id="addbook">
-            <h1>add new book</h1>
-            <input  placeholder="name" type="text" id="name" class="input">
-            <input  placeholder="author" type="text" id="author" class="input">
-            <input  placeholder="pages" type="number" id="pages" class="input">
+        <div class="addbook" id="addbook">
+            <h1>add book</h1>
+            <input onfocus="this.value=''" placeholder="name" type="text" id="name" class="input">
+            <input onfocus="this.value=''" placeholder="author" type="text" id="author" class="input">
+            <input onfocus="this.value=''" placeholder="pages" type="number" id="pages" class="input">
             <div class="checkflex">
                 <input type="checkbox" id="read" class="check">
-                <label for="read" class="done"><b>finished?</b></label>
+                <label onfocus="this.value=''" for="read" class="done"><b>finished?</b></label>
             </div>
-            <button class="addtoshelf button-style" id="addtoshelf" onclick="createEntry()">add to shelf</button>
+            <button class="button-style" onclick="addEntry()">add to shelf</button>
         </div>
-        <div class="shelf base-padding" id="shelf"> 
-            <!--books will be added here-->
-        </div>
+        <div class="shelf" id="shelf"> <!--books will be added here--> </div>
     </div>
     <script src="main.js"></script>
 </body>
