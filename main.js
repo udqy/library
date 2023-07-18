@@ -1,5 +1,6 @@
 const plus = document.getElementById("addbook");
 const over = document.getElementById("over");
+const main = document.getElementById("shelf");
 
 function closePopup(){
     plus.style.display = "none";
@@ -15,15 +16,13 @@ function openPopup(){
 
 function overlay(){
     openPopup();
-    
+
     over.addEventListener("click", () => {
         closePopup();
     });
 }
 
 // main code, adds books to array objects
-
-const main = document.getElementById("shelf");
 
 let myLibrary = [];
 
@@ -44,7 +43,6 @@ function addEntry(){
     const author = document.getElementById("author").value;
     const pages = document.getElementById("pages").value;
     const read = document.getElementById("read").checked;
-
 
     const bookCard=document.createElement("div");
     bookCard.classList.add("book");
@@ -68,12 +66,12 @@ function addEntry(){
     const label=document.createElement("label");
     label.for = "check-js";
     label.innerText = "finished?";
-    label.style.fontWeight = "800";
+    label.style.fontWeight = "1000";
     label.classList.add("done");
 
-    title.innerHTML = "\"" + aname + "\"";
-    author1.innerHTML = author;
-    pages1.innerHTML = pages + " pages";
+    title.innerText = "\"" + aname + "\"";
+    author1.innerText = author;
+    pages1.innerText = pages + " pages";
     remove.classList.add("button-style");
 
     main.appendChild(bookCard);
@@ -85,12 +83,20 @@ function addEntry(){
     checkDiv.appendChild(label);
     bookCard.appendChild(remove);
 
-    if(read){
-        bookCard.style.backgroundColor = "#FAD2E1"; // changes background if book is read
+    //adds to array
+
+    const abc = new book(aname,author,pages,read);
+    myLibrary.push(abc);
+    const abcIndex = myLibrary.indexOf(abc);
+
+    //changes background if book is finished
+    if(read==true){
+        bookCard.style.backgroundColor = "#FAD2E1"; 
     }
 
+    //removes element when remove is clicked
     remove.addEventListener("click",()=>{
         main.removeChild(bookCard);
+        myLibrary.splice(abcIndex,1);
     });
-
 }
